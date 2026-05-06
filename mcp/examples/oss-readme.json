@@ -1,0 +1,16 @@
+{
+  "name": "Lensbnb — listings to reels (OSS project intro)",
+  "description": "### About this project\nLensbnb is an open-source MCP service that turns any structured brief into a 30-second 9:16 vertical reel. It orchestrates MiniMax's full multimodal stack — M2 for the script, image-01 for AI-generated cards, speech-2.8-hd for narration, music-2.6 for the bed — and stitches everything with ffmpeg.\n\n### What's agentic\nThe pipeline is not a fixed sequence of API calls. The LLM picks the voice persona from a curated catalog with rationale. It validates the script JSON against a schema and regenerates with feedback if narration is the wrong length. It reviews up to 18 candidate photos clustered by perceptual hash and picks the 5 most diverse + useful for the Ken-Burns sequence. Every decision is logged.\n\n### Why it matters\nReal-estate listings, recipes, OSS READMEs, news headlines — all reduce to a brief + photos. One MCP tool, one pipeline, many domains. Drop into Claude Desktop or any MCP client, fork the code, build your own consumer.\n\n### Stack\nTypeScript + Bun, Next.js 16, Supabase Postgres + Storage, ffmpeg with libass + libfreetype, agent-browser for ingest. MIT licensed.",
+  "photo_urls": [
+    "https://placehold.co/1920x1920/1c2230/f7f3ec?text=Lensbnb",
+    "https://placehold.co/1920x1920/8a5a3b/f7f3ec?text=MCP+server",
+    "https://placehold.co/1920x1920/4a6a64/f7f3ec?text=MiniMax+%2B+ffmpeg",
+    "https://placehold.co/1920x1920/1c2230/f7f3ec?text=Agentic+selection",
+    "https://placehold.co/1920x1920/8a5a3b/f7f3ec?text=Open+source",
+    "https://placehold.co/1920x1920/4a6a64/f7f3ec?text=Fork+%26+remix"
+  ],
+  "external_url": "",
+  "city": "",
+  "neighborhood": "",
+  "_note_to_user": "This is a TEMPLATE. The photo_urls above point to placehold.co (stable color blocks with text overlays) so the brief is callable end-to-end. Before generating a real OSS-project reel, replace these with screenshots, logos, architecture diagrams, or code-on-screen photos from your actual project."
+}
