@@ -6,6 +6,10 @@
 
 Lensbnb turns a content brief — name, markdown description, real photo URLs — into a 30-second vertical reel: script, image cards, voice, music, captions, watermark, and `ffmpeg` assembly. Every modality runs on MiniMax with one Bearer token. The bundled showcase is 20 Paris short-stay listings, but the same pipeline is exposed as a single MCP tool, `generate_reel`, that any client can call with any brief.
 
+## Demo
+
+A 2:21 walkthrough is bundled at [`docs/demo/lensbnb-demo.mp4`](docs/demo/lensbnb-demo.mp4) and on the [release page](https://github.com/jonthnoz/gosim-hackathon/releases/tag/demo). It opens with a real generated reel, tours the UI and the source data on Airbnb, shows three reels generating in parallel with their per-listing agentic decisions visible, and closes with the tech footprint.
+
 ## Showcase: short-stay reels
 
 Run the web app and twenty Paris listings render as 4:5 cards in a responsive grid. Click **Generate** on a card and the pipeline kicks off for that one listing; a status pill ticks through `script → images → voice → music → assembly` while you wait. ~3 minutes later the card swaps to a playable MP4 with caption, and a "How this reel was made" disclosure that exposes the script-retry count, the voice persona M2 picked for that listing, and the photo positions M2 chose from the candidate gallery.
