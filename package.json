@@ -1,0 +1,34 @@
+{
+  "name": "gosim-listings-to-reels",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Auto-generate 9:16 Reels from real-estate listings using MiniMax's full multimodal stack.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "lint": "oxlint",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "typecheck": "tsc --noEmit",
+    "brand:generate": "bun run scripts/generate-logo.ts",
+    "adapter:airbnb": "bun run adapters/airbnb/cli.ts",
+    "adapter:airbnb:expand": "bun run adapters/airbnb/expand-photos.ts",
+    "mcp:server": "bun run mcp/server.ts",
+    "reset:reels": "bun run scripts/reset-reels.ts",
+    "reset:mcp": "bun run scripts/reset-mcp.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "@supabase/supabase-js": "^2.105.3",
+    "csv-parse": "^5.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "bun-types": "^1.3.13",
+    "oxfmt": "^0.47.0",
+    "oxlint": "^1.62.0",
+    "typescript": "^5.7.0"
+  }
+}

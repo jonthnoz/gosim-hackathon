@@ -1,0 +1,29 @@
+node_modules/
+.env
+.env.local
+.env.*.local
+
+# Generated / downloaded artifacts
+data/cache/
+data/photos/
+out/
+*.mp4
+*.mp3
+*.wav
+*.srt
+
+# Build
+dist/
+build/
+.next/
+
+# Editor / OS
+.DS_Store
+*.log
+.vscode/
+.idea/
+
+# Local-only working notes and harness state
+docs/superpowers/
+.claude/
+CLAUDE.md
