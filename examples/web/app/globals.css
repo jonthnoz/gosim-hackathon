@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+/*
+ * Lensbnb design tokens.
+ * Vibe: warm cream paper + deep ink + cognac accent. Editorial Parisian.
+ */
+
+@theme inline {
+  /* Surfaces */
+  --color-paper: #f7f3ec;          /* warm cream — the page background */
+  --color-card: #ffffff;           /* card surface */
+  --color-mute: #efe8da;           /* subtle backplane (settings cards, hovers) */
+  --color-line: #e1d8c8;           /* warm border, low contrast */
+  --color-line-soft: #ece4d4;      /* even softer border */
+
+  /* Text */
+  --color-ink: #1c2230;            /* primary text — deep ink-navy */
+  --color-ink-soft: #424a5b;       /* secondary text */
+  --color-fade: #8b8475;           /* muted text — warm grey */
+
+  /* Accents */
+  --color-cognac: #8a5a3b;         /* primary action — warm leather */
+  --color-cognac-dark: #6b4426;    /* hover */
+  --color-cognac-soft: #d8c5b1;    /* tinted backgrounds */
+  --color-patina: #4a6a64;         /* secondary accent — copper-patina teal */
+  --color-coral: #b54a35;          /* errors */
+
+  /* Typography */
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* Shape */
+  --radius-card: 0.5rem;
+  --radius-pill: 999px;
+}
+
+@layer base {
+  html, body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  /* Display/serif headings get optical sizing automatically via Fraunces opsz axis */
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    font-feature-settings: "lnum", "ss01";
+    letter-spacing: -0.01em;
+  }
+
+  /* Subtle text selection — cognac wash, not browser default blue */
+  ::selection {
+    background: var(--color-cognac-soft);
+    color: var(--color-ink);
+  }
+
+  /* Quiet focus — cognac ring, not blue browser default */
+  :focus-visible {
+    outline: 2px solid var(--color-cognac);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  /* Primary action button — solid cognac with subtle hover */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-[var(--color-paper)] bg-[var(--color-cognac)] rounded-[var(--radius-card)] transition-colors;
+  }
+  .btn-primary:hover {
+    background: var(--color-cognac-dark);
+  }
+  .btn-primary:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  /* Secondary — ghost on paper */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-[var(--color-ink)] rounded-[var(--radius-card)] transition-colors;
+    background: transparent;
+    border: 1px solid var(--color-line);
+  }
+  .btn-ghost:hover {
+    background: var(--color-mute);
+  }
+
+  /* Quiet — for Regenerate, etc. */
+  .btn-quiet {
+    @apply inline-flex items-center justify-center px-4 py-2 text-sm text-[var(--color-ink-soft)] rounded-[var(--radius-card)] transition-colors;
+  }
+  .btn-quiet:hover {
+    background: var(--color-mute);
+    color: var(--color-ink);
+  }
+
+  /* Subtle "post" alt — patina accent */
+  .btn-publish {
+    @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-[var(--color-paper)] rounded-[var(--radius-card)] transition-colors;
+    background: var(--color-patina);
+  }
+  .btn-publish:hover {
+    filter: brightness(1.05);
+  }
+
+  /* Error / retry */
+  .btn-retry {
+    @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-[var(--color-paper)] rounded-[var(--radius-card)] transition-colors;
+    background: var(--color-coral);
+  }
+
+  /* Listing card */
+  .card-listing {
+    background: var(--color-card);
+    border-radius: var(--radius-card);
+    box-shadow: 0 1px 0 var(--color-line-soft), 0 8px 24px -16px rgba(28, 34, 48, 0.12);
+    transition: box-shadow 200ms ease, transform 200ms ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .card-listing:hover {
+    box-shadow: 0 1px 0 var(--color-line-soft), 0 14px 30px -14px rgba(28, 34, 48, 0.16);
+    transform: translateY(-1px);
+  }
+
+  /* Form controls */
+  .input-paper {
+    @apply w-full text-sm rounded-md px-3 py-2 transition-colors;
+    background: var(--color-card);
+    color: var(--color-ink);
+    border: 1px solid var(--color-line);
+    font-family: var(--font-sans);
+  }
+  .input-paper:focus {
+    border-color: var(--color-cognac);
+    outline: none;
+  }
+  textarea.input-paper {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  /* Section divider */
+  .hairline {
+    border-top: 1px solid var(--color-line-soft);
+  }
+
+  /* Stage label pill */
+  .pill-stage {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 text-xs;
+    color: var(--color-ink-soft);
+    background: var(--color-mute);
+    border-radius: var(--radius-pill);
+  }
+  .pill-stage::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-cognac);
+    animation: pulse 1.4s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
