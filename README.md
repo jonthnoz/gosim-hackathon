@@ -8,7 +8,7 @@ Lensbnb turns a content brief — name, markdown description, real photo URLs �
 
 ## Showcase: short-stay reels
 
-Run the web app and twenty Paris listings render as 4:5 cards in a responsive grid. Click a card and the pipeline kicks off for that one listing; a status pill ticks through `script → images → voice → music → assembly` while you wait. ~3 minutes later the card swaps to a playable MP4 with caption, and a "How this reel was made" disclosure that exposes the script-retry count, the voice persona M2 picked for that listing, and the photo positions M2 chose from the candidate gallery.
+Run the web app and twenty Paris listings render as 4:5 cards in a responsive grid. Click **Generate** on a card and the pipeline kicks off for that one listing; a status pill ticks through `script → images → voice → music → assembly` while you wait. ~3 minutes later the card swaps to a playable MP4 with caption, and a "How this reel was made" disclosure that exposes the script-retry count, the voice persona M2 picked for that listing, and the photo positions M2 chose from the candidate gallery.
 
 Each reel is grounded in the listing's real markdown description and real photo gallery. The script prompt is grounded on the listing description and explicitly forbids invented amenities, views, or neighborhoods. Real photos drive the Ken-Burns sequence; M2-generated mood images bookend the real-photo sequence, with one lifestyle transition before the end card.
 
@@ -88,7 +88,7 @@ The default `prompts/script.md` is short-stay-tuned (hook → walk-through → n
     "voice_rationale": "string",
     "music_mood": "string",
     "photo_selection": {
-      "chosen_positions": [0,3,5,7,9],
+      "chosen_positions": [1,3,5,7,9],
       "candidates_total": 13,
       "candidates_uncapped": 13,
       "method": "llm",
@@ -164,7 +164,9 @@ The MCP server registers four read-only example briefs you can list and read bef
     Then clone and install:
 
     ```bash
-    git clone https://github.com/<you>/lensbnb && cd lensbnb && bun install
+    git clone https://github.com/jonthnoz/gosim-hackathon.git
+    cd gosim-hackathon
+    bun install
     ```
 
 2. Copy `.env.example` to `.env` and fill in the keys the pipeline, MCP server, and web app actually read.
